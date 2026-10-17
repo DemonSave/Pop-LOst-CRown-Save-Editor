@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PoP: The Lost Crown - Save Editor</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="sigil">&#9670;</div>
+    <div>
+      <h1 id="title">Prince of Persia: The Lost Crown</h1>
+      <p id="subtitle" class="muted" data-i18n="loading">Caricamento...</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="overview" data-i18n="tab.overview">Panoramica</button>
+    <button class="tab" data-tab="edit" data-i18n="tab.edit">Modifica</button>
+    <button class="tab" data-tab="shots" data-i18n="tab.shots">Screenshot</button>
+    <button class="tab" data-tab="raw" data-i18n="tab.raw">JSON</button>
+    <button class="tab" data-tab="backup" data-i18n="tab.backup">Backup</button>
+    <select id="lang" class="lang-select" data-i18n-label="language" aria-label="Lingua"></select>
+  </nav>
+</header>
+
+<div id="banner" class="banner hidden"></div>
+
+<main>
+  <section id="tab-overview" class="tabpane active">
+    <section class="savepick">
+      <div class="savepick-head">
+        <h2 data-i18n="savepick.title">Cartella dei salvataggi</h2>
+        <button class="btn small ghost" id="saves-help" type="button" data-i18n="savepick.help">Dove sono?</button>
+      </div>
+      <p class="path" id="save-path"></p>
+      <div class="savepick-row">
+        <select id="save-select" aria-label="Salvataggi trovati" data-i18n-label="savepick.select"></select>
+        <button class="btn small primary" id="save-open" type="button" data-i18n="savepick.open">Apri</button>
+        <button class="btn small ghost" id="save-browse" type="button" data-i18n="savepick.browse">Sfoglia...</button>
+      </div>
+      <div id="saves-helpbox" class="hint hidden">
+        <p data-i18n-html="savepick.intro"></p>
+        <ul>
+          <li data-i18n-html="savepick.oneDrive"></li>
+          <li data-i18n-html="savepick.pick"></li>
+          <li data-i18n-html="savepick.cloud"></li>
+          <li data-i18n="savepick.remember"></li>
+        </ul>
+      </div>
+    </section>
+    <div id="summary" class="summary"></div>
+    <h2 data-i18n="actions.title">Azioni rapide</h2>
+    <div id="actions" class="action-grid"></div>
+    <p class="hint" data-i18n="hint.gzip">I file sono compressi con gzip e contengono JSON: nessuna crittografia.
+      Ogni modifica crea prima un backup automatico.</p>
+  </section>
+
+  <section id="tab-edit" class="tabpane">
+    <div id="world"></div>
+    <div id="sections"></div>
+  </section>
+
+  <section id="tab-shots" class="tabpane">
+    <div id="shots" class="gallery"></div>
+  </section>
+
+  <section id="tab-raw" class="tabpane">
+    <div class="rawhead">
+      <label><span data-i18n="raw.document">Documento</span>
+        <select id="raw-doc"></select>
+      </label>
+      <button id="raw-load" class="btn ghost" data-i18n="raw.load">Carica</button>
+      <button id="raw-apply" class="btn warn" data-i18n="raw.apply">Applica JSON</button>
+    </div>
+    <p class="hint" data-i18n="raw.hint">Modifica diretta del JSON interno. Usa indentazione qualsiasi: viene
+      ricompattato automaticamente. Se il JSON non e' valido il file non viene toccato.</p>
+    <textarea id="raw-text" spellcheck="false" data-i18n-ph="raw.placeholder"></textarea>
+  </section>
+
+  <section id="tab-backup" class="tabpane">
+    <p class="hint" data-i18n="backup.hint">I backup sono salvati fuori dalla cartella del gioco. Il ripristino crea
+      a sua volta un backup dello stato attuale.</p>
+    <p class="muted" id="backup-root"></p>
+    <div id="backups" class="backup-list"></div>
+  </section>
+</main>
+
+<footer class="applybar">
+  <span id="pending-label" data-i18n="footer.nochanges">Nessuna modifica</span>
+  <div class="actions">
+    <button id="reset" class="btn ghost" data-i18n="footer.reset">Annulla modifiche</button>
+    <button id="apply" class="btn primary" data-i18n="footer.apply" disabled>Applica</button>
+  </div>
+</footer>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

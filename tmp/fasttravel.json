@@ -1,0 +1,370 @@
+[
+ {
+  "guid": "3d2a653fbf5425a468e8d24b432e6a31",
+  "name": "MainWorld_FastTravel_VAL_SUN_08_PIRATE_AMBUSH_ARENA_0",
+  "portal": "29cdfe3c-c3b9-4f71-affb-5c0e16ffd996",
+  "level": {
+   "name": "MainWorld_Level_VAL_SUN_08_PIRATE_AMBUSH_ARENA",
+   "guid": "6d040f64b1b0ab549a1ea41557cc6bbc",
+   "scene": "VAL_SUN_08_PIRATE_AMBUSH_ARENA",
+   "path": "Assets/_Game/Scenes/08_ValleyOfThieves/SunkenHarbor/VAL_SUN_08_PIRATE_AMBUSH_ARENA/VAL_SUN_08_PIRATE_AMBUSH_ARENA.unity"
+  },
+  "pos": {
+   "x": 28.5,
+   "y": 32.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "ebe637b2e8239a24995e35111ad19eb0",
+  "name": "MainWorld_FastTravel_CIT_UPP_24_Engine_Puzzle_0",
+  "portal": "d9a01684-5e76-47fe-891a-0b78887ea76e",
+  "level": {
+   "name": "MainWorld_Level_CIT_UPP_24_Engine_Puzzle",
+   "guid": "8c32d1157b278c54da40e0ea76140a1b",
+   "scene": "CIT_UPP_24_Engine_Puzzle",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/UpperCity/CIT_UPP_24_Engine_Puzzle/CIT_UPP_24_Engine_Puzzle.unity"
+  },
+  "pos": {
+   "x": 42.5,
+   "y": 60.04150390625,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "116d826ed4ef37e478505f664f572c2e",
+  "name": "MainWorld_FastTravel_CIT_LOW_07_Up_0",
+  "portal": "240127b9-b8ab-454c-b3d4-ae3cc236d4c9",
+  "level": {
+   "name": "Level_CIT_LOW_07_Up",
+   "guid": "8877a2e83bd71c74dbbaf265c3836d20",
+   "scene": "CIT_LOW_07_Up",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/LowerCity/CIT_LOW_07_Up/CIT_LOW_07_Up.unity"
+  },
+  "pos": {
+   "x": -61.0,
+   "y": -11.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "5651ecdf361fe264dae697812b12f121",
+  "name": "MainWorld_FastTravel_CIT_DEP_05_CollectorShopAccess_0",
+  "portal": "7fafebda-9b0d-4404-a8a0-a8156a84e2a2",
+  "level": {
+   "name": "MainWorld_Level_CIT_DEP_05_CollectorShopAccess",
+   "guid": "c320bface06c5d04dac48f4522d2f576",
+   "scene": "CIT_DEP_05_CollectorShopAccess",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/Depths/CIT_DEP_05_CollectorShopAccess/CIT_DEP_05_CollectorShopAccess.unity"
+  },
+  "pos": {
+   "x": 25.0,
+   "y": 8.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "03247182b31d13e439daa2b0638f4718",
+  "name": "MainWorld_FastTravel_CIT_DEP02_03_nolight2_sphincterhall_0",
+  "portal": "d511e0e9-450e-4243-b71b-9984df7c5793",
+  "level": {
+   "name": "MainWorld_Level_CIT_DEP02_03_nolight2_sphincterhall",
+   "guid": "4bde7e4617438dc4fb596cb6cb1f95f8",
+   "scene": "CIT_DEP02_03_nolight2_sphincterhall",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/Depths/CIT_DEP02_03_nolight2_sphincterhall/CIT_DEP02_03_nolight2_sphincterhall.unity"
+  },
+  "pos": {
+   "x": 0.0,
+   "y": 5.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "64a01ad13b21af64882da2c14c5af3bd",
+  "name": "MainWorld_FastTravel_CIT_UPP_12_Night_Temple_0 1",
+  "portal": "5a0bf105-bfe8-4c1d-b7b2-bc0869d701af",
+  "level": {
+   "name": "MainWorld_Level_CIT_UPP_12_Night_Temple",
+   "guid": "71b504c074e7b73449003f3dc639c10a",
+   "scene": "CIT_UPP_12_Night_Temple",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/UpperCity/CIT_UPP_12_Night_Temple/CIT_UPP_12_Night_Temple.unity"
+  },
+  "pos": {
+   "x": 88.5,
+   "y": 57.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "eeb98bd363721054bbbf57fa6773a624",
+  "name": "MainWorld_FastTravel_CIT_LOW_10_0",
+  "portal": "90807acb-a782-4ca2-a577-a1c2ae282cfd",
+  "level": {
+   "name": "Level_CIT_LOW_10",
+   "guid": "061fa5b4e91673c459a3113ab921e270",
+   "scene": "CIT_LOW_10",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/LowerCity/CIT_LOW_10/CIT_LOW_10.unity"
+  },
+  "pos": {
+   "x": 128.5,
+   "y": 55.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "8c2b08673aa4bfd489469909a60571db",
+  "name": "MainWorld_FastTravel_HYR_SOM_04_SomaTree_0 1",
+  "portal": "443c04d3-0766-4d2a-a013-010cccc3f750",
+  "level": {
+   "name": "MainWorld_Level_HYR_SOM_04_SomaTree",
+   "guid": "ccce05b4064877b41a9c73a82b443545",
+   "scene": "HYR_SOM_04_SomaTree",
+   "path": "Assets/_Game/Scenes/05_HyrcanianForest/SomaTree/HYR_SOM_04_SomaTree/HYR_SOM_04_SomaTree.unity"
+  },
+  "pos": {
+   "x": 26.59002685546875,
+   "y": 5.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "3ec38959037f155429336ed5ec4adb78",
+  "name": "FastTravel_SAC_SAC_14_Homa_Room_0",
+  "portal": "e0402931-ce8a-4b94-a57c-42e31fbebeef",
+  "level": {
+   "name": "MainWorld_Level_SAC_SAC_14_Homa_Room",
+   "guid": "a1d6076da2155cc47b3d876f81b942ee",
+   "scene": "SAC_SAC_14_Homa_Room",
+   "path": "Assets/_Game/Scenes/06_SacredArchives/SacredArchives/SAC_SAC_14_Homa_Room/SAC_SAC_14_Homa_Room.unity"
+  },
+  "pos": {
+   "x": -258.0,
+   "y": 158.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "2eaa7c6d97cfa1649bcfc54498f0e790",
+  "name": "MainWorld_FastTravel_HYR_SOM_04Bis_Uncursed_SomaTree_3",
+  "portal": "26aa582b-1fe5-4f9b-892c-00101e620eb1",
+  "level": {
+   "name": "MainWorld_Level_HYR_SOM_04Bis_Uncursed_SomaTree",
+   "guid": "8421fa5b65774f14087435e8e9da1cb3",
+   "scene": "HYR_SOM_04Bis_Uncursed_SomaTree",
+   "path": "Assets/_Game/Scenes/05_HyrcanianForest/SomaTree/HYR_SOM_04Bis_Uncursed_SomaTree/HYR_SOM_04Bis_Uncursed_SomaTree.unity"
+  },
+  "pos": {
+   "x": 25.79998779296875,
+   "y": 5.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "e8e46714d6c24734c9ad49d3fed99816",
+  "name": "MainWorld_FastTravel_VAL_RAG_03_frozenboat2_inside_0",
+  "portal": "e6cfe9a8-33e5-45a1-80a8-3f6962b7ba44",
+  "level": {
+   "name": "MainWorld_Level_VAL_RAG_03_frozenboat2_inside",
+   "guid": "ec8b9149ff89f8a4cb6291fa521592aa",
+   "scene": "VAL_RAG_03_frozenboat2_inside",
+   "path": "Assets/_Game/Scenes/08_ValleyOfThieves/RagingSea/VAL_RAG_03_frozenboat2_inside/VAL_RAG_03_frozenboat2_inside.unity"
+  },
+  "pos": {
+   "x": 58.5,
+   "y": 13.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "319c48eb051141144b2d8c9fd0a9dd87",
+  "name": "MainWorld_FastTravel_CIT_UPP_21bis_BirdCage_0",
+  "portal": "9f3f9c77-e492-4ef5-ad0d-8abc29814c20",
+  "level": {
+   "name": "MainWorld_Level_CIT_UPP_21bis_BirdCage",
+   "guid": "f29cc214b155c5d46bff9a9b26995377",
+   "scene": "CIT_UPP_21bis_BirdCage",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/UpperCity/CIT_UPP_21bis_BirdCage/CIT_UPP_21bis_BirdCage.unity"
+  },
+  "pos": {
+   "x": 47.0,
+   "y": 85.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "ecb762b0dbe82eb44aea161ca454df92",
+  "name": "MainWorld_FastTravel_NEC_TOW_12_WakWak_And_Hermit_0",
+  "portal": "eb8abb6c-7c16-4e1c-bbf7-f1443c822942",
+  "level": {
+   "name": "MainWorld_Level_NEC_TOW_12_WakWak_And_Hermit",
+   "guid": "6d5a1d46310b23d49baa660f935038fe",
+   "scene": "NEC_TOW_12_WakWak_And_Hermit",
+   "path": "Assets/_Game/Scenes/09_Necropolis/TowerOfSilence/NEC_TOW_12_WakWak_And_Hermit/NEC_TOW_12_WakWak_And_Hermit.unity"
+  },
+  "pos": {
+   "x": 84.5,
+   "y": 75.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "0458bc4f688943242948ac55ba9588b7",
+  "name": "MainWorld_FastTravel_END_PIT_11_AzdahaArenaEntrance_5",
+  "portal": "758a8e0d-60b5-402e-9b6f-aa052fb6a855",
+  "level": {
+   "name": "MainWorld_Level_END_PIT_11_AzdahaArenaEntrance",
+   "guid": "bbf2f9560a8b8b9409dadcec2bdb2e3c",
+   "scene": "END_PIT_11_AzdahaArenaEntrance",
+   "path": "Assets/_Game/Scenes/07_EndlessCaves/PitOfEternalSands/END_PIT_11_AzdahaArenaEntrance/END_PIT_11_AzdahaArenaEntrance.unity"
+  },
+  "pos": {
+   "x": 71.0,
+   "y": 49.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "e382cbb0dd2c709498e3224d9a9d4dda",
+  "name": "MainWorld_FastTravel_SAC_SAC02_11_WakWak_0",
+  "portal": "2985287e-a76a-4b4b-8bc5-ec55a2a0075b",
+  "level": {
+   "name": "MainWorld_Level_SAC_SAC02_11_WakWak",
+   "guid": "58a5a086d65ee7d429e01fdc00d63001",
+   "scene": "SAC_SAC02_11_WakWak",
+   "path": "Assets/_Game/Scenes/06_SacredArchives/SacredArchives/SAC_SAC02_11_WakWak/SAC_SAC02_11_WakWak.unity"
+  },
+  "pos": {
+   "x": 24.0,
+   "y": 14.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "f3b6821137a76cf4f8e7080dd936122f",
+  "name": "MainWorld_FastTravel_VAL_SUN_03_WAKWAK_CAVE_0 1",
+  "portal": "8eed6588-b535-4ad5-b00e-49fca564eefd",
+  "level": {
+   "name": "MainWorld_Level_VAL_SUN_03_WAKWAK_CAVE",
+   "guid": "587f4dba0d8e37f4eba87aa604fdad76",
+   "scene": "VAL_SUN_03_WAKWAK_CAVE",
+   "path": "Assets/_Game/Scenes/08_ValleyOfThieves/SunkenHarbor/VAL_SUN_03_WAKWAK_CAVE/VAL_SUN_03_WAKWAK_CAVE.unity"
+  },
+  "pos": {
+   "x": 43.283714294433594,
+   "y": 11.000000953674316,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "77e7f50029321894b9c13014b4296855",
+  "name": "MainWorld_FastTravel_VAL_RAG_12_unfrozenoutside4_homa_2",
+  "portal": "e7c79f93-70c5-42c3-a46a-f426f9cf9550",
+  "level": {
+   "name": "MainWorld_Level_VAL_RAG_12_unfrozenoutside4_homa",
+   "guid": "5b4fe6572b7753d4b8d74076306270d6",
+   "scene": "VAL_RAG_12_unfrozenoutside4_homa",
+   "path": "Assets/_Game/Scenes/08_ValleyOfThieves/RagingSea/VAL_RAG_12_unfrozenoutside4_homa/VAL_RAG_12_unfrozenoutside4_homa.unity"
+  },
+  "pos": {
+   "x": 5.5,
+   "y": 3.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "a80073e0a44389c41aa5b78fb870fe53",
+  "name": "MainWorld_FastTravel_END_PIT_10_HubDoubleJump_0",
+  "portal": "bfc3fa02-c2d4-4064-8806-1c9b1d51b147",
+  "level": {
+   "name": "MainWorld_Level_END_PIT_10_HubDoubleJump",
+   "guid": "828c41abe4173bb45aee6f74760b996d",
+   "scene": "END_PIT_10_HubDoubleJump",
+   "path": "Assets/_Game/Scenes/07_EndlessCaves/PitOfEternalSands/END_PIT_10_HubDoubleJump/END_PIT_10_HubDoubleJump.unity"
+  },
+  "pos": {
+   "x": 63.5,
+   "y": 13.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "6746ddd1fd75ceb4fa07a1c6221fd818",
+  "name": "MainWorld_FastTravel_HYR_SOM_11_Foliage_Crossroad_0",
+  "portal": "eeddd0af-e8bd-4a6f-bcdf-4736a8168929",
+  "level": {
+   "name": "MainWorld_Level_HYR_SOM_11_Foliage_Crossroad",
+   "guid": "0e9eff3059ff22649a3ef5dd434bc139",
+   "scene": "HYR_SOM_11_Foliage_Crossroad",
+   "path": "Assets/_Game/Scenes/05_HyrcanianForest/SomaTree/HYR_SOM_11_Foliage_Crossroad/HYR_SOM_11_Foliage_Crossroad.unity"
+  },
+  "pos": {
+   "x": 65.5,
+   "y": 31.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "67cce6a4a91143e4bbaa97b9e7efb0eb",
+  "name": "MainWorld_FastTravel_CIT_UPP_03_Day_Temple_0 1",
+  "portal": "6b8828bb-5aec-4477-83b2-a63ee639720f",
+  "level": {
+   "name": "MainWorld_Level_CIT_UPP_03_Day_Temple",
+   "guid": "30c866617062c0245a918b836c253962",
+   "scene": "CIT_UPP_03_Day_Temple",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/UpperCity/CIT_UPP_03_Day_Temple/CIT_UPP_03_Day_Temple.unity"
+  },
+  "pos": {
+   "x": 91.5,
+   "y": 49.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "05343dbd8dcf6044fb8d011418f03313",
+  "name": "MainWorld_FastTravel_CIT_UPP_25_Royal_Corridor_0",
+  "portal": "27a5844b-0940-42c3-afd4-55de1cfc6edc",
+  "level": {
+   "name": "MainWorld_Level_CIT_UPP_25_Royal_Corridor",
+   "guid": "e4403a2443a3b9547a6699dfb12c33fc",
+   "scene": "CIT_UPP_25_Royal_Corridor",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/UpperCity/CIT_UPP_25_Royal_Corridor/CIT_UPP_25_Royal_Corridor.unity"
+  },
+  "pos": {
+   "x": 184.5,
+   "y": 90.0,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "308eb4e09298a4049bc3176bfaf40147",
+  "name": "MainWorld_FastTravel_CIT_DEP_11_UndeadErlik_0",
+  "portal": "f1038f50-7e1d-402a-a377-a1ff1b0e255c",
+  "level": {
+   "name": "MainWorld_Level_CIT_DEP_11_UndeadErlik",
+   "guid": "cfe8f1fe056d1f7498917a3ff0f4509b",
+   "scene": "CIT_DEP_11_UndeadErlik",
+   "path": "Assets/_Game/Scenes/02_CitadelOfKnowledge/Depths/CIT_DEP_11_UndeadErlik/CIT_DEP_11_UndeadErlik.unity"
+  },
+  "pos": {
+   "x": 60.0,
+   "y": 2.5,
+   "z": 0.0
+  }
+ },
+ {
+  "guid": "02aeadad2ad4d3e419e6aea894e313dd",
+  "name": "MainWorld_FastTravel_HYR_SOM_23_OldTower_0",
+  "portal": "e7770602-4fda-420a-8747-09249329573a",
+  "level": {
+   "name": "MainWorld_Level_HYR_SOM_23_OldTower",
+   "guid": "6841825a62f8ffb40ab35b47ecd1d5d9",
+   "scene": "HYR_SOM_23_OldTower",
+   "path": "Assets/_Game/Scenes/05_HyrcanianForest/SomaTree/HYR_SOM_23_OldTower/HYR_SOM_23_OldTower.unity"
+  },
+  "pos": {
+   "x": 3.0,
+   "y": 23.0,
+   "z": 0.0
+  }
+ }
+]

@@ -1,0 +1,166 @@
+{
+  "m_gameOptionsTypeInt": [
+    {
+      "m_value": 10,
+      "m_eGameOptionType": 6
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 7
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 8
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 10
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 11
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 12
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 13
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 16
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 18
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 20
+    },
+    {
+      "m_value": 3,
+      "m_eGameOptionType": 21
+    },
+    {
+      "m_value": 2,
+      "m_eGameOptionType": 23
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 25
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 26
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 27
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 28
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 36
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 37
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 39
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 48
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 49
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 50
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 51
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 54
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 56
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 57
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 58
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 59
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 60
+    },
+    {
+      "m_value": 0,
+      "m_eGameOptionType": 62
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 68
+    }
+  ],
+  "m_gameOptionsTypeFloat": [
+    {
+      "m_value": 1.5,
+      "m_eGameOptionType": 14
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 15
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 17
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 19
+    },
+    {
+      "m_value": 1,
+      "m_eGameOptionType": 24
+    },
+    {
+      "m_value": 1.5,
+      "m_eGameOptionType": 40
+    },
+    {
+      "m_value": 1.25,
+      "m_eGameOptionType": 55
+    },
+    {
+      "m_value": 0.5,
+      "m_eGameOptionType": 61
+    },
+    {
+      "m_value": 0.8,
+      "m_eGameOptionType": 63
+    }
+  ]
+}

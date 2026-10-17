@@ -1,0 +1,21 @@
+{
+  "m_level": "90a0ea3a0469f064d8e44e9d7b0d4950",
+  "m_date": "08/10/2026 17:14:51",
+  "m_invariantDate": "10/08/2026 17:14:51",
+  "m_duration": 13552,
+  "m_completion": 0.205667987,
+  "m_gameCompleted": false,
+  "m_currentQuestGameStage": 0,
+  "m_gameStage": {
+    "completedStages": [
+      "Persia_Attacked",
+      "Lost_In_MountQaf"
+    ],
+    "activeStage": "Abducted_Prince"
+  },
+  "m_permadeathSave": false,
+  "m_speedRunSave": false,
+  "m_permadeathOver": false,
+  "m_mainGameSpeedrunTime": 0,
+  "m_requiresDLC1": false
+}
