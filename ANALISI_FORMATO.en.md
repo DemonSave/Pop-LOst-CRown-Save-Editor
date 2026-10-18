@@ -211,10 +211,13 @@ m_playerMapProgressionData
 
 Each cell uses **2 bits** (states 0–3): this is why `m_nbCells = 1248`
 corresponds to 78 words (`1248 × 2 / 32`). The analysed save contains 11 areas,
-336 sectors and 445,904 cells. The `reveal_map` action writes `0xFFFFFFFF` into
-every word (all cells at state 3) **without changing the number of words**, and
-sets `m_isComplete = true` and `m_displayMapLegend = true` in
-`PlayerMapSubComponent`.
+336 sectors and 445,904 cells. Each word holds 32 bits, so 16 cells, and the number
+of words per sector must stay `ceil(m_nbCells * 2 / 32)`.
+
+> Note: the old `reveal_map` action filled every word with `0xFFFFFFFF` (all cells
+> at state 3) and set `m_isComplete = true` and `m_displayMapLegend = true` in
+> `PlayerMapSubComponent`. It has been **removed**: in-game testing left the map
+> stuck and no longer visible, so the tool now only reads these bitmaps.
 
 ### 8.2 Fast travel: `PortalData` of type 1
 

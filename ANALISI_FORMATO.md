@@ -211,9 +211,14 @@ m_playerMapProgressionData
 
 Ogni cella usa **2 bit** (stati 0–3): per questo `m_nbCells = 1248` corrisponde a
 78 parole (`1248 × 2 / 32`). Nel salvataggio analizzato ci sono 11 aree, 336
-settori e 445.904 celle. L'azione `reveal_map` scrive `0xFFFFFFFF` in ogni parola
-(tutte le celle a stato 3) **senza cambiare il numero di parole**, e imposta
-`m_isComplete = true` e `m_displayMapLegend = true` in `PlayerMapSubComponent`.
+settori e 445.904 celle. Ogni parola contiene 32 bit, quindi 16 celle, e il numero
+di parole per settore deve restare `ceil(m_nbCells * 2 / 32)`.
+
+> Nota: la vecchia azione `reveal_map` riempiva ogni parola con `0xFFFFFFFF`
+> (tutte le celle a stato 3) e impostava `m_isComplete = true` e
+> `m_displayMapLegend = true` in `PlayerMapSubComponent`. È stata **rimossa**:
+> nei test in gioco lasciava la mappa bloccata e non più visibile, quindi il tool
+> ora si limita a leggere queste bitmap.
 
 ### 8.2 Viaggi rapidi: `PortalData` di tipo 1
 

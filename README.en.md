@@ -17,7 +17,7 @@ available in Italian, English, German, Spanish and French.
 together with the READMEs and the quick guides. Unzip it anywhere and double-click
 `PoPSaveEditor.exe`: the web editor starts on `127.0.0.1:8765` (next free port if
 busy). From the command line it behaves like the script, e.g.
-`PoPSaveEditor.exe apply all`.
+`PoPSaveEditor.exe info`.
 
 To rebuild it (Windows, tested with Python 3.14):
 
@@ -65,8 +65,7 @@ python popedit.py web
 
 It opens `http://127.0.0.1:8765` with:
 
-- **Overview** – readable summary + **quick actions**: reveal the whole map,
-  unlock all 23 fast travels, complete the 13 temple challenges
+- **Overview** – readable summary of the save and folder selection
 - **Edit** – tables with readable names for fast travels and challenges, plus the
   editable values: crystals, health, upgrades, abilities, stones of knowledge,
   inventory, game options
@@ -130,11 +129,6 @@ python popedit.py pack -i estratti            # repack the edited JSON
 python popedit.py set crystals=99999 playtime=2:00:00 completion=75
 python popedit.py set hp=500 sword=4 bow=4 quiver=4 stones=3
 
-python popedit.py apply reveal_map            # every map cell to "explored"
-python popedit.py apply unlock_fast_travel    # unlock the 23 Wak-Wak points
-python popedit.py apply complete_challenges   # complete the 13 Artaban lessons
-python popedit.py apply all                   # all three (aliases: mappa, viaggi, sfide)
-
 python popedit.py backups                     # list backups
 python popedit.py restore                     # restore the latest backup
 ```
@@ -143,18 +137,22 @@ Keys accepted by `set`: `crystals` (currency), `playtime` (`HH:MM:SS` or seconds
 `completion` (percentage or 0–1), `hp`, `sword`, `bow`, `quiver`, `potion_count`,
 `potion_effect`, `health_upgrades`, `stones` (level of every stone).
 
-### What the actions do
+### Quick actions: removed
 
-| action | effect on the save |
-|---|---|
-| `reveal_map` | writes `0xFFFFFFFF` into every map bitmap (2 bits per cell, 11 areas, 336 sectors) and sets `m_isComplete` |
-| `unlock_fast_travel` | adds the 23 GUIDs of the fast-travel `PortalData` to `FastTravelStatusSaveDataFrame.m_unlockedGuids` |
-| `complete_challenges` | sets all 13 entries of `ChallengeManagerSaveDataFrame.m_challengesCompletions` (Artaban lessons) to `Done` |
+The three automatic actions (`reveal_map`, `unlock_fast_travel`,
+`complete_challenges`) are **no longer part of the project**: in-game testing
+showed that force-filling the map bitmaps left the map stuck and no longer
+visible, and those bulk writes can also leave the save in a state the game does
+not like.
 
-The readable names (region/level for fast travels, lesson name for challenges)
-come from [popdata.py](popdata.py), extracted from the game bundles. Every action
-creates a backup and touches only `PopSaveGame*.AlkSave`; screenshots and the other
-documents stay unchanged.
+The editor now only **reads** map, fast travels and challenges (tables in the Edit
+tab) and writes only the values you choose, one at a time. The readable names
+(region/level for fast travels, lesson name for challenges) come from
+`popdata.py` (included in the sources), extracted from the game bundles.
+
+If you used an older version and the map is gone, open the **Backups** tab and
+restore the backup made before that action (or copy back the save folder you
+kept by hand).
 
 If `--save` is omitted, the tool uses the last folder written by the game in
 `lastSavedFolder.txt` (for example `…\SaveSlot3\Save_134359460918773693`).
@@ -175,7 +173,7 @@ cloud saves, disable syncing for that game.
 
 ```
 pop-save-tool/
-├─ popsave.py            library: container read/write, backups, patches, actions
+├─ popsave.py            library: container read/write, backups, patches
 ├─ popdata.py            extracted game data (23 fast travels, 13 lessons)
 ├─ i18n.py               translations (IT, EN, DE, ES, FR)
 ├─ popedit.py            command line interface and web server
@@ -184,15 +182,15 @@ pop-save-tool/
 ├─ tests/selfcheck.py    automatic check on a copy of the save
 ├─ estratti/             readable copy of the analysed save (JSON + JPG)
 ├─ README.md             Italian documentation
-├─ LEGGIMI.txt           Italian quick guide for the exe
+├─ dist/                 exe, zip, installer and quick guides (LEGGIMI.txt)
 ├─ ANALISI_FORMATO.en.md full format analysis (English)
 └─ ANALISI_FORMATO.md    the same analysis in Italian
 ```
 
 To re-run the checks: `python tests/selfcheck.py` (it works on a temporary copy
-and never touches the original). The test also covers the three actions: 23 fast
-travels unlocked, 13 challenges `Done`, every map bitmap at `0xFFFFFFFF`,
-unchanged lengths, a 16-file backup and an identical repack.
+and never touches the original). The test also verifies that the quick actions no
+longer exist, that the translations are complete and that reading map, fast
+travels and challenges writes nothing to the save.
 
 `popdata.py` is already included: the editor needs no extra library. Only to
 regenerate it from the game bundles you need `pip install UnityPy` (see

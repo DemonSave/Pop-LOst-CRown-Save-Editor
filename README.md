@@ -17,7 +17,7 @@ disponibile in italiano, inglese, tedesco, spagnolo e francese.
 installare) con i README e le guide rapide. Si scompatta ovunque e si fa doppio
 clic su `PoPSaveEditor.exe`: parte l'editor web su `127.0.0.1:8765` (porta
 successiva se occupata). Da riga di comando funziona allo stesso modo dello
-script, es. `PoPSaveEditor.exe apply all`.
+script, es. `PoPSaveEditor.exe info`.
 
 Per ricostruirlo (Windows, Python 3.14 testato):
 
@@ -65,8 +65,7 @@ python popedit.py web
 
 Apre `http://127.0.0.1:8765` con:
 
-- **Panoramica** – riepilogo leggibile + **azioni rapide**: svela tutta la mappa,
-  sblocca tutti i 23 viaggi rapidi, completa le 13 sfide del tempio
+- **Panoramica** – riepilogo leggibile del salvataggio e scelta della cartella
 - **Modifica** – tabelle con nomi leggibili di viaggi rapidi e sfide, più i valori
   modificabili: cristalli, punti vita, potenziamenti, abilità, pietre della
   conoscenza, inventario, opzioni di gioco
@@ -132,11 +131,6 @@ python popedit.py pack -i estratti            # ricompatta i JSON modificati
 python popedit.py set crystals=99999 playtime=2:00:00 completion=75
 python popedit.py set hp=500 sword=4 bow=4 quiver=4 stones=3
 
-python popedit.py apply reveal_map            # tutte le celle della mappa a "esplorate"
-python popedit.py apply unlock_fast_travel    # sblocca i 23 Wak-Wak
-python popedit.py apply complete_challenges   # 13 lezioni di Artaban completate
-python popedit.py apply all                   # tutte e tre (alias: mappa, viaggi, sfide)
-
 python popedit.py backups                     # elenca i backup
 python popedit.py restore                     # ripristina l'ultimo backup
 ```
@@ -145,18 +139,22 @@ Chiavi accettate da `set`: `crystals` (moneta), `playtime` (`HH:MM:SS` o secondi
 `completion` (percentuale o 0–1), `hp`, `sword`, `bow`, `quiver`, `potion_count`,
 `potion_effect`, `health_upgrades`, `stones` (livello di tutte le pietre).
 
-### Cosa fanno le azioni
+### Azioni rapide: rimosse
 
-| azione | effetto sul salvataggio |
-|---|---|
-| `reveal_map` | scrive `0xFFFFFFFF` in tutte le bitmap della mappa (2 bit per cella, 11 aree, 336 settori) e imposta `m_isComplete` |
-| `unlock_fast_travel` | aggiunge i 23 GUID dei `PortalData` di tipo fast-travel a `FastTravelStatusSaveDataFrame.m_unlockedGuids` |
-| `complete_challenges` | porta a `Done` tutte le 13 voci di `ChallengeManagerSaveDataFrame.m_challengesCompletions` (lezioni di Artaban) |
+Le tre azioni automatiche (`reveal_map`, `unlock_fast_travel`,
+`complete_challenges`) **non fanno più parte del progetto**: nei test in gioco il
+riempimento forzato delle bitmap della mappa lasciava la mappa bloccata e non più
+visibile, e anche gli altri due interventi di massa possono lasciare il
+salvataggio in uno stato che il gioco non gradisce.
 
-I nomi leggibili (regione/livello per i viaggi, nome della lezione per le sfide)
-vengono da [popdata.py](popdata.py), estratto dai bundle del gioco. Ogni azione
-crea un backup e tocca solo `PopSaveGame*.AlkSave`; gli screenshot e gli altri
-documenti restano invariati.
+Ora l'editor **legge** soltanto mappa, viaggi rapidi e sfide (tabelle nella
+scheda Modifica) e scrive solo i valori che scegli tu, uno per uno. I nomi
+leggibili (regione/livello per i viaggi, nome della lezione per le sfide) vengono
+da `popdata.py` (incluso nei sorgenti), estratto dai bundle del gioco.
+
+Se hai usato una versione precedente e la mappa non si vede più, apri la scheda
+**Backup** e ripristina il backup creato prima di quell'azione (oppure copia a
+mano la cartella del salvataggio che avevi conservato).
 
 Se `--save` è omesso, il tool usa l'ultima cartella indicata dal gioco in
 `lastSavedFolder.txt` (per esempio `…\SaveSlot3\Save_134359460918773693`).
@@ -177,7 +175,7 @@ i salvataggi cloud di Ubisoft/Steam, disattiva la sincronizzazione per quel gioc
 
 ```
 pop-save-tool/
-├─ popsave.py            libreria: lettura/scrittura dei contenitori, backup, patch, azioni
+├─ popsave.py            libreria: lettura/scrittura dei contenitori, backup, patch
 ├─ popdata.py            dati di gioco estratti (23 viaggi, 13 lezioni)
 ├─ i18n.py               traduzioni (IT, EN, DE, ES, FR)
 ├─ popedit.py            interfaccia a riga di comando e server web
@@ -186,15 +184,15 @@ pop-save-tool/
 ├─ tests/selfcheck.py    verifica automatica su una copia del salvataggio
 ├─ estratti/             copia leggibile del salvataggio analizzato (JSON + JPG)
 ├─ README.en.md          documentazione in inglese
-├─ LEGGIMI.txt           guida rapida per l'exe
+├─ dist/                 exe, zip, installer e guide rapide (LEGGIMI.txt)
 ├─ ANALISI_FORMATO.md    analisi completa del formato, in italiano
 └─ ANALISI_FORMATO.en.md la stessa analisi in inglese
 ```
 
 Per rieseguire le verifiche: `python tests/selfcheck.py` (lavora su una copia
-temporanea, non tocca l'originale). Il test controlla anche le tre azioni:
-23 viaggi sbloccati, 13 sfide `Done`, tutte le bitmap della mappa a
-`0xFFFFFFFF`, lunghezze invariate, backup da 16 file e ricompattamento identico.
+temporanea, non tocca l'originale). Il test controlla anche che le azioni rapide
+non esistano più, che le traduzioni siano complete e che la lettura di mappa,
+viaggi rapidi e sfide non scriva nulla nel salvataggio.
 
 `popdata.py` è già incluso: per usare l'editor non servono altre librerie.
 Solo per rigenerarlo dai bundle serve `pip install UnityPy` (vedi

@@ -7,7 +7,6 @@ Uso:
     python popedit.py extract -o estratti   # JSON + screenshot leggibili
     python popedit.py pack -i estratti      # ricompatta i JSON modificati
     python popedit.py set crystals=99999 playtime=2:00:00 completion=50
-    python popedit.py apply reveal_map unlock_fast_travel complete_challenges
     python popedit.py web                   # editor web locale
     python popedit.py backups               # elenco backup
     python popedit.py restore <nome>        # ripristina un backup
@@ -84,12 +83,6 @@ def cmd_info(args):
     for i, it in enumerate(save.inventory):
         if it.get("m_itemAmount", 0):
             print(f"    {it.get('m_itemType', '?'):<42} {it.get('m_itemAmount')}")
-
-    print("\n  AZIONI PRONTE")
-    for action in save.available_actions():
-        stato = "gia' fatto" if action["done"] else "da fare"
-        print(f"    {action['id']:<20} {action['title']:<32} [{stato}]")
-        print(f"      {action['desc']}")
 
     opts = save.obj("options") or {}
     print("\n  OPZIONI DI GIOCO (id numerici interni)")
@@ -215,40 +208,6 @@ def cmd_set(args):
     for row in log:
         print("  " + row)
     print("Fatto. Avvia il gioco e carica il salvataggio.")
-
-
-ACTION_ALIASES = {
-    "mappa": "reveal_map", "map": "reveal_map", "reveal_map": "reveal_map",
-    "viaggi": "unlock_fast_travel", "fast_travel": "unlock_fast_travel",
-    "unlock_fast_travel": "unlock_fast_travel",
-    "sfide": "complete_challenges", "challenges": "complete_challenges",
-    "complete_challenges": "complete_challenges",
-}
-ALL_ACTIONS = ["reveal_map", "unlock_fast_travel", "complete_challenges"]
-
-
-def cmd_apply(args):
-    save = SaveGame(args.save)
-    wanted = []
-    for raw in args.actions:
-        key = raw.strip().lower()
-        if key in ("all", "tutto", "tutte"):
-            wanted.extend(ALL_ACTIONS)
-        elif key in ACTION_ALIASES:
-            wanted.append(ACTION_ALIASES[key])
-        else:
-            sys.exit(f"Azione sconosciuta: {raw} (usa: {', '.join(ALL_ACTIONS)})")
-    seen = set()
-    for action in wanted:
-        if action in seen:
-            continue
-        seen.add(action)
-        log, backup = save.apply_action(action)
-        print(f"\nAzione: {action}")
-        print(f"Backup: {backup}")
-        for row in log:
-            print("  " + row)
-    print("\nFatto. Avvia il gioco e carica il salvataggio.")
 
 
 # --------------------------------------------------------------------------
@@ -491,7 +450,6 @@ def build_state(save: SaveGame, lang: str = "it") -> dict:
         "ui": i18n.ui_strings(loc),
         "save_dir": str(save.dir),
         "saves": save_choices(save.dir),
-        "actions": save.available_actions(loc),
         "fast_travel": save.fast_travel_state(),
         "challenges": save.challenge_state(loc),
         "map_stats": save.map_stats(),
@@ -607,14 +565,6 @@ class Handler(BaseHTTPRequestHandler):
                                     "value": coerce(ch["value"], ch.get("type", "raw"))})
                 log, backup = self.save.apply_changes(cleaned)
                 Handler.save = SaveGame(self.save.dir)  # stato fresco per le richieste seguenti
-                self._json(200, {"ok": True, "log": log, "backup": str(backup),
-                                 "state": build_state(Handler.save, Handler.lang)})
-            elif url.path == "/api/action":
-                action = str(data.get("action", ""))
-                if action not in ALL_ACTIONS:
-                    raise ValueError(i18n.tr(Handler.lang, "err.bad_action"))
-                log, backup = self.save.apply_action(action, Handler.lang)
-                Handler.save = SaveGame(self.save.dir)
                 self._json(200, {"ok": True, "log": log, "backup": str(backup),
                                  "state": build_state(Handler.save, Handler.lang)})
             elif url.path == "/api/raw":
@@ -775,9 +725,6 @@ def main():
     p_set = add("set", "modifica rapida (chiave=valore)")
     p_set.add_argument("pairs", nargs="+")
 
-    p_apply = add("apply", "azioni pronte: reveal_map, unlock_fast_travel, complete_challenges, all")
-    p_apply.add_argument("actions", nargs="+", help="nomi delle azioni (o mappa/viaggi/sfide/all)")
-
     p_web = add("web", "editor web locale")
     p_web.add_argument("--port", type=int, default=8765)
     p_web.add_argument("--no-open", action="store_true")
@@ -799,7 +746,7 @@ def main():
         args.save = str(found)
 
     commands = {"info": cmd_info, "extract": cmd_extract, "pack": cmd_pack, "set": cmd_set,
-                "apply": cmd_apply, "web": cmd_web, "saves": cmd_saves,
+                "web": cmd_web, "saves": cmd_saves,
                 "backups": cmd_backups, "restore": cmd_restore}
     if not args.cmd:
         # Doppio clic sull'exe: apri direttamente l'editor nel browser.

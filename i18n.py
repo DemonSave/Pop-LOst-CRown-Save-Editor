@@ -38,17 +38,6 @@ S = {
         "Los archivos son JSON comprimido con gzip: sin cifrado. Cada cambio crea antes una copia de seguridad.",
         "Les fichiers sont du JSON compressé en gzip : aucun chiffrement. Chaque modification crée d'abord une sauvegarde."),
     "ui.rows": ("{n} voci", "{n} items", "{n} Einträge", "{n} elementos", "{n} éléments"),
-    "ui.actions.title": ("Azioni rapide", "Quick actions", "Schnellaktionen", "Acciones rápidas", "Actions rapides"),
-    "ui.action.done": ("completato", "done", "erledigt", "hecho", "fait"),
-    "ui.action.todo": ("da fare", "to do", "offen", "pendiente", "à faire"),
-    "ui.action.apply": ("Applica", "Apply", "Anwenden", "Aplicar", "Appliquer"),
-    "ui.action.reapply": ("Riapplica", "Apply again", "Erneut anwenden", "Aplicar de nuevo", "Réappliquer"),
-    "ui.confirm.action": (
-        'Applicare "{title}"?\n\n{desc}\n\nVerra\' creato un backup automatico.',
-        'Apply "{title}"?\n\n{desc}\n\nAn automatic backup will be created.',
-        '"{title}" anwenden?\n\n{desc}\n\nEs wird automatisch ein Backup erstellt.',
-        '¿Aplicar "{title}"?\n\n{desc}\n\nSe creará una copia de seguridad automática.',
-        'Appliquer « {title} » ?\n\n{desc}\n\nUne sauvegarde automatique sera créée.'),
     # -- selettore cartella ------------------------------------------------
     "ui.savepick.title": ("Cartella dei salvataggi", "Save folder", "Speicherordner", "Carpeta de guardado",
                           "Dossier de sauvegarde"),
@@ -131,31 +120,6 @@ S = {
     "summary.upgrades_value": ("vita {h}, spada {s}, arco {b}, faretra {q}", "health {h}, sword {s}, bow {b}, quiver {q}",
                                "Leben {h}, Schwert {s}, Bogen {b}, Köcher {q}", "vida {h}, espada {s}, arco {b}, carcaj {q}",
                                "vie {h}, épée {s}, arc {b}, carquois {q}"),
-    # -- azioni ------------------------------------------------------------
-    "action.reveal.title": ("Svela tutta la mappa", "Reveal the whole map", "Ganze Karte aufdecken",
-                            "Revelar todo el mapa", "Révéler toute la carte"),
-    "action.reveal.desc": (
-        "Porta a 'esplorata' ogni cella delle {maps} mappe ({layers} settori, {cells} celle).",
-        "Mark every cell of all {maps} maps as explored ({layers} sectors, {cells} cells).",
-        "Markiert jede Zelle aller {maps} Karten als erkundet ({layers} Sektoren, {cells} Zellen).",
-        "Marca como explorada cada celda de los {maps} mapas ({layers} sectores, {cells} celdas).",
-        "Marque chaque cellule des {maps} cartes comme explorée ({layers} secteurs, {cells} cellules)."),
-    "action.travel.title": ("Sblocca tutti i viaggi rapidi", "Unlock all fast travels", "Alle Schnellreisen freischalten",
-                            "Desbloquear todos los viajes rápidos", "Débloquer tous les voyages rapides"),
-    "action.travel.desc": (
-        "Attiva tutti i {total} punti Wak-Wak del gioco ({done} gia' sbloccati).",
-        "Unlock all {total} Wak-Wak points in the game ({done} already unlocked).",
-        "Schaltet alle {total} Wak-Wak-Punkte frei ({done} bereits freigeschaltet).",
-        "Desbloquea los {total} puntos Wak-Wak ({done} ya desbloqueados).",
-        "Débloque les {total} points Wak-Wak ({done} déjà débloqués)."),
-    "action.challenge.title": ("Completa le sfide del tempio", "Complete the temple challenges", "Tempelprüfungen abschließen",
-                               "Completar los desafíos del templo", "Terminer les défis du temple"),
-    "action.challenge.desc": (
-        "Segna come completate le {total} lezioni di combattimento di Artaban ({done} gia' completate).",
-        "Mark all {total} Artaban combat lessons as completed ({done} already done).",
-        "Markiert alle {total} Kampflektionen von Artaban als abgeschlossen ({done} bereits erledigt).",
-        "Marca como completadas las {total} lecciones de combate de Artaban ({done} ya completadas).",
-        "Marque les {total} leçons de combat d'Artaban comme terminées ({done} déjà faites)."),
     # -- sezioni e campi ---------------------------------------------------
     "section.progression": ("Progressione", "Progression", "Fortschritt", "Progreso", "Progression"),
     "section.character": ("Personaggio", "Character", "Charakter", "Personaje", "Personnage"),
@@ -321,7 +285,6 @@ S = {
     "toast.saved": ("Salvate {n} modifiche. Backup: {backup}", "Saved {n} changes. Backup: {backup}",
                     "{n} Änderungen gespeichert. Backup: {backup}", "Guardados {n} cambios. Copia: {backup}",
                     "{n} modifications enregistrées. Sauvegarde : {backup}"),
-    "toast.done": ("Fatto: {log}", "Done: {log}", "Fertig: {log}", "Hecho: {log}", "Terminé : {log}"),
     "err.generic": ("Errore: {msg}", "Error: {msg}", "Fehler: {msg}", "Error: {msg}", "Erreur : {msg}"),
     "err.http": ("Errore {code}", "Error {code}", "Fehler {code}", "Error {code}", "Erreur {code}"),
     "err.read": ("Impossibile leggere il salvataggio: {msg}", "Cannot read the save: {msg}",
@@ -329,8 +292,6 @@ S = {
                  "Impossible de lire la sauvegarde : {msg}"),
     # -- errori del server -------------------------------------------------
     "err.notfound": ("non trovato", "not found", "nicht gefunden", "no encontrado", "introuvable"),
-    "err.bad_action": ("azione non valida", "invalid action", "ungültige Aktion", "acción no válida",
-                       "action invalide"),
     "err.backup": ("backup non trovato", "backup not found", "Backup nicht gefunden", "copia no encontrada",
                    "sauvegarde introuvable"),
     "err.doc": ("documento non disponibile", "document not available", "Dokument nicht verfügbar",
@@ -356,26 +317,6 @@ S = {
                        "{n} sauvegardes trouvées : choisis le dossier Save_ précis"),
     "err.no_folder": ("nessuna cartella indicata", "no folder given", "kein Ordner angegeben",
                       "no se indicó ninguna carpeta", "aucun dossier indiqué"),
-    "log.map": ("mappa: {layers} settori / {cells} celle impostate a esplorate",
-                "map: {layers} sectors / {cells} cells marked as explored",
-                "Karte: {layers} Sektoren / {cells} Zellen als erkundet markiert",
-                "mapa: {layers} sectores / {cells} celdas marcadas como exploradas",
-                "carte : {layers} secteurs / {cells} cellules marquées comme explorées"),
-    "log.map_flags": ("mappa: m_isComplete = true, legenda visibile = true",
-                      "map: m_isComplete = true, legend visible = true",
-                      "Karte: m_isComplete = true, Legende sichtbar = true",
-                      "mapa: m_isComplete = true, leyenda visible = true",
-                      "carte : m_isComplete = true, légende visible = true"),
-    "log.travel": ("viaggi rapidi: {old} -> {new} punti sbloccati",
-                   "fast travels: {old} -> {new} points unlocked",
-                   "Schnellreisen: {old} -> {new} Punkte freigeschaltet",
-                   "viajes rápidos: {old} -> {new} puntos desbloqueados",
-                   "voyages rapides : {old} -> {new} points débloqués"),
-    "log.challenges": ("sfide del tempio: {old} -> {new} completate",
-                       "temple challenges: {old} -> {new} completed",
-                       "Tempelprüfungen: {old} -> {new} abgeschlossen",
-                       "desafíos del templo: {old} -> {new} completados",
-                       "défis du temple : {old} -> {new} terminés"),
     "log.raw": ("{key}: JSON riscritto ({n} caratteri)", "{key}: JSON rewritten ({n} characters)",
                 "{key}: JSON überschrieben ({n} Zeichen)", "{key}: JSON reescrito ({n} caracteres)",
                 "{key} : JSON réécrit ({n} caractères)"),
@@ -436,7 +377,6 @@ def tr(lang: str | None, key: str, **fmt) -> str:
 
 
 SERVER_ONLY = ("summary.", "section.", "field.", "options.", "log.", "picker.")
-ACTION_KEEP = {"action.done", "action.todo", "action.apply", "action.reapply"}
 
 
 def ui_strings(lang: str | None) -> dict:
@@ -445,8 +385,6 @@ def ui_strings(lang: str | None) -> dict:
     out = {}
     for key, row in S.items():
         if key.startswith(SERVER_ONLY):
-            continue
-        if key.startswith("action.") and key not in ACTION_KEEP:
             continue
         out[key[3:] if key.startswith("ui.") else key] = row[_INDEX[lang]]
     return out

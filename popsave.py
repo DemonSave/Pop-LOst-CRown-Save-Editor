@@ -349,7 +349,7 @@ class SaveGame:
             {"label": t("summary.screenshots"), "value": str(len(self.screenshots))},
         ]
 
-    # -- azioni pronte ----------------------------------------------------
+    # -- mappa, viaggi rapidi e sfide --------------------------------------
     def map_layers(self):
         """Genera ((indice mappa, parte, settore), layer) per ogni bitmap della mappa.
 
@@ -408,78 +408,6 @@ e' ceil(m_nbCells * 2 / 32)."""
                 "done": status == "Done",
             })
         return rows
-
-    def available_actions(self, lang: str = "it") -> list[dict]:
-        stats = self.map_stats()
-        travel = self.fast_travel_state()
-        lessons = self.challenge_state(lang)
-        lang = i18n.normalize(lang)
-        cells = f"{stats['cells']:,}"
-        if lang in ("it", "de", "es"):
-            cells = cells.replace(",", ".")
-        elif lang == "fr":
-            cells = cells.replace(",", " ")
-        return [
-            {"id": "reveal_map", "title": i18n.tr(lang, "action.reveal.title"), "icon": "map",
-             "desc": i18n.tr(lang, "action.reveal.desc", maps=stats["maps"], layers=stats["layers"],
-                             cells=cells),
-             "done": bool(get_path(self._save_json, self.loc["map"]).get("m_isComplete"))
-                     if self.loc.get("map") else False},
-            {"id": "unlock_fast_travel", "title": i18n.tr(lang, "action.travel.title"), "icon": "travel",
-             "desc": i18n.tr(lang, "action.travel.desc", total=len(travel),
-                             done=sum(1 for r in travel if r["unlocked"])),
-             "done": all(r["unlocked"] for r in travel)},
-            {"id": "complete_challenges", "title": i18n.tr(lang, "action.challenge.title"),
-             "icon": "challenge",
-             "desc": i18n.tr(lang, "action.challenge.desc", total=len(lessons),
-                             done=sum(1 for r in lessons if r["done"])),
-             "done": all(r["done"] for r in lessons)},
-        ]
-
-    def apply_action(self, action: str, lang: str = "it") -> tuple[list[str], Path]:
-        """Applica un'azione pronta e riscrive il solo documento necessario."""
-        if self._save_json is None:
-            raise ValueError("Salvataggio non disponibile")
-        log = []
-
-        if action == "reveal_map":
-            stats = self.map_stats()
-            filled = 0
-            for _key, layer in self.map_layers():
-                nb = layer["m_nbCells"]
-                if len(layer["m_data"]) != math.ceil(nb * 2 / 32):
-                    continue  # formato inatteso: non toccare
-                layer["m_data"] = [0xFFFFFFFF] * len(layer["m_data"])
-                filled += nb
-            if self.loc.get("map"):
-                componente = get_path(self._save_json, self.loc["map"])
-                componente["m_isComplete"] = True
-                componente["m_displayMapLegend"] = True
-            log.append(i18n.tr(lang, "log.map", layers=stats["layers"], cells=filled))
-            log.append(i18n.tr(lang, "log.map_flags"))
-            touched = {self.save_file: self.containers[self.save_file]}
-
-        elif action == "unlock_fast_travel":
-            frame = get_path(self._save_json, self.loc["fasttravel"])
-            current = [g for g in frame.get("m_unlockedGuids", []) if isinstance(g, str)]
-            merged = list(dict.fromkeys(current + [p["guid"] for p in popdata.FAST_TRAVEL]))
-            frame["m_unlockedGuids"] = merged
-            log.append(i18n.tr(lang, "log.travel", old=len(current), new=len(merged)))
-            touched = {self.save_file: self.containers[self.save_file]}
-
-        elif action == "complete_challenges":
-            frame = get_path(self._save_json, self.loc["challenges"])
-            completions = frame.get("m_challengesCompletions", [])
-            done = sum(1 for s in completions if s == "Done")
-            frame["m_challengesCompletions"] = ["Done"] * len(completions)
-            log.append(i18n.tr(lang, "log.challenges", old=done, new=len(completions)))
-            touched = {self.save_file: self.containers[self.save_file]}
-
-        else:
-            raise ValueError(f"Azione sconosciuta: {action}")
-
-        backup = self._write(touched)
-        return log, backup
 
     # -- applica modifiche ------------------------------------------------
     def apply_changes(self, changes: list[dict]) -> list[str]:
